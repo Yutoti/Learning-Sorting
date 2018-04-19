@@ -20,7 +20,7 @@ public class SwapBubble {
 			}
 		}
 	}
-}
+
 
 public void swap(int[] SqList, int a, int b) {
 

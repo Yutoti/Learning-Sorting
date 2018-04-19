@@ -1,0 +1,33 @@
+package sorting;
+
+//finished by LLee at 2018.1.1 23:29
+
+public class SwapBubble {
+
+	public void sBSorting(int[] SqList) {
+
+		if (SqList == null) return;
+		int i, j;
+		boolean flag = true;
+
+		for (i = 0; i < SqList.length && flag; i++) {
+			flag = false;
+			for (j = SqList.length - 1; j > i; j--) {
+				if (SqList[j] < SqList[j - 1]) {
+					swap(SqList, j, j - 1);
+					flag = true;
+				}
+			}
+		}
+	}
+}
+
+public void swap(int[] SqList, int a, int b) {
+
+	int temp;
+
+	temp = SqList[a];
+	SqList[a] = SqList[b];
+	SqList[b] = temp;
+}
+}

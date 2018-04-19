@@ -1,0 +1,27 @@
+package sorting;
+
+//finished by LLee on 2017.12.24
+
+public class InsertDirect {
+
+	public void iDSorting(int[] SqList) {
+		if (SqList == null) {
+			System.out.println("The input is empty");
+		} else {
+			int i, j;
+			int temp;
+
+			for (i = 1; i < SqList.length; i++) { // 两个循环，i循环往后，j循环往前，算法
+				if (SqList[i] < SqList[i - 1]) { // 最坏复杂度为O(n*2)
+					temp = SqList[i];
+					j = i - 1;
+					while (j >= 0 && SqList[j] > temp) {
+						SqList[j + 1] = SqList[j];
+						j--;
+					}
+					SqList[j + 1] = temp;
+				}
+			}
+		}
+	}
+}

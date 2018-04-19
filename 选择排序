@@ -1,0 +1,27 @@
+package sorting;
+
+//finished by LLee at 2018.1.1 10:43
+
+public class SelectSimple {
+
+	public void sSSorting(int SqList[]) {
+
+		if (SqList == null) return;
+		int i, j, locate;
+		int min, temp;
+
+		for (i = 0; i < SqList.length; i++) {
+			min = SqList[i];
+			locate = i;
+			for (j = i + 1; j < SqList.length; j++) {
+				if (SqList[j] < min) {
+					min = SqList[j];
+					locate = j;
+				}
+			}
+			temp = SqList[i];
+			SqList[i] = min;
+			SqList[locate] = temp;
+		}
+	}
+}

@@ -1,0 +1,53 @@
+package sorting;
+
+public class MergeRecursive {
+
+	public void mRSorting(int[] SqList) {
+
+		if (SqList == null) {
+			System.out.println("The input is empty");
+		} else {
+			sorting(SqList, 0, SqList.length - 1);
+		}
+	}
+
+	public void sorting(int[] SqList, int s, int t) {
+
+		int m;
+
+		if (s == t) {
+			SqList[s] = SqList[s];
+		} else {
+			m = (s + t) / 2;
+			sorting(SqList, s, m);
+			sorting(SqList, m + 1, t);
+			merge(SqList, s, m, t);
+		}
+	}
+
+	public void merge(int[] SqList, int s, int m, int t) {
+
+		int i = s, j = m + 1, k = s;
+		int[] TeList = new int[SqList.length];
+
+		while (i <= m && j <= t) {
+			if (SqList[i] <= SqList[j]) {
+				TeList[k++] = SqList[i++];
+			} else {
+				TeList[k++] = SqList[j++];
+			}
+		}
+
+		while (i <= m) {
+			TeList[k++] = SqList[i++];
+		}
+
+		while (j <= t) {
+			TeList[k++] = SqList[j++];
+		}
+
+		for (k = s; k <= t; k++) {
+			SqList[k] = TeList[k];
+		}
+	}
+}

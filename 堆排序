@@ -6,20 +6,18 @@ public class SelectHeap {
 
 	public void sHSorting(int[] SqList) {
 
-		if (SqList == null) {
-			System.out.println("The input is empty");
-		} else {
-			int i;
-			for (i = SqList.length / 2 - 1; i >= 0; i--) { // 将初始数据构建为大顶堆，i从n/2-1到0，即每一次循环使得
-				heapAdjust(SqList, i, SqList.length); // 第i到第n个元素成为大顶堆，最终所有元素都是大顶堆
-			}
+		if (SqList == null) return;
+		int i;
+		for (i = SqList.length / 2 - 1; i >= 0; i--) { // 将初始数据构建为大顶堆，i从n/2-1到0，即每一次循环使得
+			heapAdjust(SqList, i, SqList.length); // 第i到第n个元素成为大顶堆，最终所有元素都是大顶堆
+		}
 
-			for (i = SqList.length; i > 1; i--) { // 序列i长度由n减少到2
-				swap(SqList, 0, i - 1); // 交换已经构建好的大顶堆数据（堆顶0和最后一个元素i-1
-				heapAdjust(SqList, 0, i - 2); // 不断利用剩下的元素构建大顶堆，由于大部分已经是构建好了的
-			} // 大顶堆，只有发生了元素交换的才需要重新构建，故从0开始
-		} // 把大的往上换，构建大顶堆（正确的顺序是从下往上，从右往左，
-	} // 但此处大部分都是已经构建好的大顶堆，只有0处变化了，所以从0开始）
+		for (i = SqList.length; i > 1; i--) { // 序列i长度由n减少到2
+			swap(SqList, 0, i - 1); // 交换已经构建好的大顶堆数据（堆顶0和最后一个元素i-1
+			heapAdjust(SqList, 0, i - 2); // 不断利用剩下的元素构建大顶堆，由于大部分已经是构建好了的
+		} // 大顶堆，只有发生了元素交换的才需要重新构建，故从0开始
+	} // 把大的往上换，构建大顶堆（正确的顺序是从下往上，从右往左，
+	// 但此处大部分都是已经构建好的大顶堆，只有0处变化了，所以从0开始）
 
 	public void heapAdjust(int[] a, int s, int m) {
 

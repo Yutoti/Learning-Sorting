@@ -1,0 +1,57 @@
+package sorting;
+
+//version 1: finished by LLee at 2018.1.2 23:30 
+//version 1: pivotvalue is SqList[low]
+
+public class SwapQuick {
+
+	public void sQSorting(int[] SqList) {
+
+		if (SqList == null) {
+			System.out.println("The input is empty");
+		} else {
+			int low = 0;
+			int high = SqList.length - 1;
+
+			sorting(SqList, low, high);
+		}
+	}
+
+	public void sorting(int[] SqList, int low, int high) {
+
+		int pivot;
+
+		if (low < high) {
+			pivot = partition(SqList, low, high);
+			sorting(SqList, low, pivot - 1);
+			sorting(SqList, pivot + 1, high);
+		}
+	}
+
+	public int partition(int[] SqList, int low, int high) {
+
+		int pivotvalue;
+		pivotvalue = SqList[low];
+
+		while (low < high) {
+			while (low < high && SqList[high] >= pivotvalue) {
+				high--;
+			}
+			swap(SqList, low, high);
+			while (low < high && SqList[low] <= pivotvalue) {
+				low++;
+			}
+			swap(SqList, low, high);
+		}
+		return low;
+	}
+
+	public void swap(int[] SqList, int a, int b) {
+
+		int temp;
+
+		temp = SqList[a];
+		SqList[a] = SqList[b];
+		SqList[b] = temp;
+	}
+}

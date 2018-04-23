@@ -4,12 +4,10 @@ public class MergeRecursive {
 
 	public void mRSorting(int[] SqList) {
 
-		if (SqList == null) {
-			System.out.println("The input is empty");
-		} else {
-			sorting(SqList, 0, SqList.length - 1);
-		}
+		if (SqList == null) return;
+		sorting(SqList, 0, SqList.length - 1);
 	}
+
 
 	public void sorting(int[] SqList, int s, int t) {
 

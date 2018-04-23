@@ -1,21 +1,19 @@
 package sorting;
 
-//version 1: finished by LLee at 2018.1.2 23:30 
+//version 1: finished by LLee at 2018.1.2 23:30
 //version 1: pivotvalue is SqList[low]
 
 public class SwapQuick {
 
 	public void sQSorting(int[] SqList) {
 
-		if (SqList == null) {
-			System.out.println("The input is empty");
-		} else {
-			int low = 0;
-			int high = SqList.length - 1;
+		if (SqList == null) return;
+		int low = 0;
+		int high = SqList.length - 1;
 
-			sorting(SqList, low, high);
-		}
+		sorting(SqList, low, high);
 	}
+
 
 	public void sorting(int[] SqList, int low, int high) {
 

@@ -4,18 +4,16 @@ public class MergeNonRecursive {
 
 	public void mNRSorting(int[] SqList) {
 
-		if (SqList == null) {
-			System.out.println("The input is empty");
-		} else {
+		if (SqList == null) return;
 
-			int k = 1;
+		int k = 1;
 
-			while (k < SqList.length - 1) {
-				sorting(SqList, k);
-				k *= 2;
-			}
+		while (k < SqList.length - 1) {
+			sorting(SqList, k);
+			k *= 2;
 		}
 	}
+
 
 	public void sorting(int[] SqList, int s) {
 

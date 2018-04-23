@@ -5,25 +5,23 @@ package sorting;
 public class InsertShell {
 
 	public void shellSorting(int[] SqList) {
-		if (SqList == null) {
-			System.out.println("The input is empty");
-		} else {
-			int i, j;
-			int temp, incre;
+		if (SqList == null) return;
+		int i, j;
+		int temp, incre;
 
-			for (incre = SqList.length / 2; incre >= 1; incre /= 2) {
-				for (i = incre; i < SqList.length; i++) {
-					if (SqList[i] < SqList[i - incre]) {
-						temp = SqList[i];
-						j = i - incre;
-						while (j >= 0 && SqList[j] > temp) {
-							SqList[j + incre] = SqList[j];
-							j -= incre;
-						}
-						SqList[j + incre] = temp;
+		for (incre = SqList.length / 2; incre >= 1; incre /= 2) {
+			for (i = incre; i < SqList.length; i++) {
+				if (SqList[i] < SqList[i - incre]) {
+					temp = SqList[i];
+					j = i - incre;
+					while (j >= 0 && SqList[j] > temp) {
+						SqList[j + incre] = SqList[j];
+						j -= incre;
 					}
+					SqList[j + incre] = temp;
 				}
 			}
 		}
 	}
 }
+
